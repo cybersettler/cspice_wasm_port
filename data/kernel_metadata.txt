@@ -1,0 +1,33 @@
+KPL/MK
+
+\begintext
+
+Kernels to load are:
+
+Earth association FK: earth_assoc_itrf93.tf
+
+Earth binary PCK: earth_000101_070620_070329.bpc
+
+Text PCK for Earth radii: pck00010.tpc
+
+Leapseconds kernel (for
+time conversion): naif0012.tls
+
+Planetary ephemeris (for
+sub-Earth computation): de430.bsp
+
+\begindata
+
+
+PATH_VALUES = ( '/home/web_user/data' )
+PATH_SYMBOLS = ( 'KERNELS' )
+
+KERNELS_TO_LOAD = ( '$KERNELS/earth_assoc_itrf93.tf',
+'$KERNELS/earth_070425_370426_predict.bpc',
+'$KERNELS/pck00010.tpc',
+'$KERNELS/naif0012.tls',
+'$KERNELS/de430.bsp'  )
+
+\begintext
+
+End of kernel

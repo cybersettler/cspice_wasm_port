@@ -3,14 +3,16 @@
   <body>
     <script src="cspice.js"></script>
     <script>
+
       const loadEphemerisFile = Module.cwrap("furnsh_c", null, ["number"]);
       const stringToEphemerisTime = Module.cwrap("str2et_c", null, ["number", "number"]);
       const computeState = Module.cwrap("spkezr_c", null, ["number", "number", "number", "number", "number", "number", "number"]);
       const pointers = [];
 
       function pressBtn(){
-        let leapFile = initString("./data/cook_01.tls");
-        let dataFile = initString("./data/cook_01.bsp");
+        //let leapFile = initString("./data/cook_01.tls");
+        //let dataFile = initString("./data/cook_01.bsp");
+        let dataFile = initString("/data.txt");
         let dateString = initString("1990 NOV 21 02:40:21.3");
         let tdb = initDouble();
         let target = initString("SUN");
@@ -21,7 +23,7 @@
         let lightTime = initDouble();
 
         // Load spice files
-        loadEphemerisFile(leapFile);
+        // loadEphemerisFile(leapFile);
         loadEphemerisFile(dataFile);
 
         // Convert UTC time to ephemeris time, or Barycentric Dynamical Time (TDB),
