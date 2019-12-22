@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      let cspiceWorker = new Worker('/js/spicejs/SpkezrExampleWorker.js');
+      cspiceWorker.onmessage = function(e) {
+        console.log('Message received from worker', e.data);
+      }
+
+      function pressBtn() {
+        cspiceWorker.postMessage("go!");
+      }
+    </script>
+    <button onclick="pressBtn()">Click me!</button>
+    <p>Open the console to see the result!</p>
+  </body>
+</html>
