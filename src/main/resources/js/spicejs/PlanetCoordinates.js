@@ -29,3 +29,13 @@ function georec_ptr(lon, lat, alt, re, f) {
   georec_c(lon, lat, alt, re, f, rectan);
   return rectan;
 }
+
+/**
+ * Planetocentric coordinate system:
+ *
+ *  -- The x-axis of the Planetocentric coordinate system for a specified body lies both in the body's equatorial plane and in the plane containing the body's prime meridian.
+ *
+ *  -- The z-axis is parallel to the body's mean axis of rotation and points North of the invariable plane of the solar system (regardless of the body's spin direction). The north pole is the pole of rotation.
+ *
+ *  -- The y-axis is defined as the cross product of the z and x axes, in that order. Thus, the frame is right-handed.
+ */
