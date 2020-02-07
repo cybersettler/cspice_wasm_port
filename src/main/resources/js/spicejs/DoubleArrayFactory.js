@@ -20,11 +20,12 @@ DoubleArrayFactory.prototype.create = function() {
     this.pointers.push(result);
   } else {
     let input = arguments[0];
-    let length = input.length;
     let a = new Float64Array(input);
-    let bytesPerElement = a.BYTES_PER_ELEMENT;
-    result = Module._malloc(length * bytesPerElement);
-    Module.writeArrayToMemory(a, result);
+    let nDataBytes = a.length * a.BYTES_PER_ELEMENT;
+    let ptr = Module._malloc(nDataBytes);
+    let dataHeap = new Uint8Array(Module.HEAPU8.buffer, ptr, nDataBytes);
+    dataHeap.set(new Uint8Array(a.buffer, a.byteOffset, nDataBytes));
+    result = ptr;
     this.pointers.push(result);
   }
 

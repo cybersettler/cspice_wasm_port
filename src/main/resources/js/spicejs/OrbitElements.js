@@ -54,13 +54,13 @@ function oscelt(state, et, mu) {
  * @returns {number} Address of state of orbiting body at et
  */
 function oscelt_ptr(state, et, mu) {
-  let statePtr;
+  let statePointer;
   if (typeof state === 'object') {
     statePointer = MemoryManager.factory.doubleArrayFactory.create(state);
   } else {
     statePointer = state;
   }
   let elts = MemoryManager.factory.doubleArrayFactory.create(8);
-  oscelt_c(statePtr, et, mu, elts);
+  oscelt_c(statePointer, et, mu, elts);
   return elts;
 }

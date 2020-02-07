@@ -29,7 +29,7 @@ function bodvrd(body, property, maxReturnedValues) {
  */
 function pxform(from, to, et) {
   let rotation = pxform_ptr(from, to, et);
-  return new Float32Array(Module.HEAPF32.buffer, rotation, 3);
+  return new Float64Array(Module.HEAPF64.buffer, rotation, 9);
 }
 
 /**
